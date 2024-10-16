@@ -1,0 +1,37 @@
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: "deploykf-app-of-apps"
+  namespace: "argocd"
+  labels:
+    app.kubernetes.io/name: deploykf-app-of-apps
+    app.kubernetes.io/part-of: "deploykf"
+spec:
+  project: "default"
+  source:
+    repoURL: "https://github.com/CQEN-QDCE/deployKF-argocd"
+    targetRevision: "main"
+    path: "GENERATOR_OUTPUT/argocd"
+    ## plugin configuration
+    ##
+    
+    plugin:
+      name: "deploykf"
+      parameters:
+
+        ## the deployKF generator version
+        ##
+        - name: "source_version"
+          string: "0.1.5"
+
+        ## paths to values files within the `repoURL` repository
+        ##
+        - name: "values_files"
+          array:
+            - "./sample-values-0.1.5.yaml"
+            - "./sample-values-users.yaml"
+  destination:
+    ## NOTE: even if the internal apps target a remote cluster, the apps themselves should be in the Argo CD cluster
+    server: "https://kubernetes.default.svc"
+    namespace: "argocd"

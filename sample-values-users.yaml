@@ -1,0 +1,83 @@
+
+## --------------------------------------------------------------------------------
+##                                  deploykf-core
+## --------------------------------------------------------------------------------
+deploykf_core:
+
+  deploykf_profiles_generator:
+
+    ## profile defaults
+    profileDefaults:
+
+      ## the default access for members of profiles, when not explicitly specified
+      ##
+      #memberAccess:
+      #  role: view
+      #  notebooksAccess: false
+
+      ## the default list of plugins for profiles, when not explicitly specified
+      ##  - you may override these defaults for a specific profile definition
+      ##
+      #plugins: []
+
+      ## the default tool configs for profiles
+      ##
+      tools:
+
+        ## the default Kubeflow Pipelines configs for profiles
+        ##
+        kubeflowPipelines:
+          {} # <-- REMOVE THIS, IF YOU INCLUDE VALUES UNDER THIS SECTION!
+
+    users:
+
+      - id: user-1
+        email: "mohamedfawzi.touati@mcn.gouv.qc.ca"
+    
+      - id: user-2
+        email: "pierre.jiji@mcn.gouv.qc.ca"
+
+      - id: user-3
+        email: "kami.rousseau@mcn.gouv.qc.ca"
+
+    groups:
+      
+      - id: team-1--admins
+        users:
+          - user-1
+          - user-2
+      
+      - id: team-2--admins
+        users:
+          - user-1
+          - user-2
+          - user-3
+    
+
+    profiles:
+
+     - name: team-fawzi
+       members:
+         - group: team-1--admins
+           access:
+             role: edit
+             notebooksAccess: true
+       plugins:
+          - kind: AwsIamForServiceAccount
+            spec:
+              awsIamRole: arn:aws:iam::131485263174:role/team-fawzi-role
+              AnnotateOnly: true
+
+     - name: team-pierre
+       members:
+         - group: team-1--admins
+           access:
+             role: edit
+             notebooksAccess: true
+       plugins:
+          - kind: AwsIamForServiceAccount
+            spec:
+              awsIamRole: arn:aws:iam::131485263174:role/team-pierre-role
+              AnnotateOnly: true
+    
+
