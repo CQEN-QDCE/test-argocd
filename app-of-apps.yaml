@@ -10,9 +10,9 @@ metadata:
 spec:
   project: "default"
   source:
-    repoURL: "https://github.com/CQEN-QDCE/deployKF-argocd"
+    repoURL: "https://github.com/CQEN-QDCE/test-argocd.git"
     targetRevision: "main"
-    path: "GENERATOR_OUTPUT/argocd"
+    path: "."
     ## plugin configuration
     ##
     
