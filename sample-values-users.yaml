@@ -79,15 +79,4 @@ deploykf_core:
             spec:
               awsIamRole: arn:aws:iam::131485263174:role/team-pierre-role
               AnnotateOnly: true
-     - name: team-test
-       members:
-         - group: team-1--admins
-           access:
-             role: edit
-             notebooksAccess: true
-       plugins:
-          - kind: AwsIamForServiceAccount
-            spec:
-              awsIamRole: arn:aws:iam::131485263174:role/team-pierre-role
-              AnnotateOnly: true
 
