@@ -725,7 +725,7 @@ kubeflow_tools:
     ## storage bucket configs
     ##
     bucket:
-      name: eks-deploykf-kf-artifact-store
+      name: eks-test-deploykf-kf-artifact-store
       region: "ca-central-1"
 
     ## object store configs
