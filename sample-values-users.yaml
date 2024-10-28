@@ -90,4 +90,3 @@ deploykf_core:
             spec:
               awsIamRole: arn:aws:iam::131485263174:role/team-pierre-role
               AnnotateOnly: true
-
