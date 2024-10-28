@@ -772,7 +772,7 @@ kubeflow_tools:
       ##  - the PodDefault will NOT be generated if `kubeflow_tools.poddefaults_webhook.enabled` is false,
       ##    regardless of this setting
       ##
-      kfpApiTokenPodDefault: true
+      kfpApiTokenPodDefault: false
 
 
   ## --------------------------------------
