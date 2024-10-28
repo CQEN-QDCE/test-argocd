@@ -56,7 +56,7 @@ deploykf_core:
 
     profiles:
 
-     - name: team-fawzi
+     - name: team-fawzi-1
        members:
          - group: team-1--admins
            access:
@@ -68,25 +68,25 @@ deploykf_core:
               awsIamRole: arn:aws:iam::131485263174:role/team-fawzi-role
               AnnotateOnly: true
 
-     - name: team-pierre
-       members:
-         - group: team-1--admins
-           access:
-             role: edit
-             notebooksAccess: true
-       plugins:
-          - kind: AwsIamForServiceAccount
-            spec:
-              awsIamRole: arn:aws:iam::131485263174:role/team-pierre-role
-              AnnotateOnly: true
-     - name: team-test
-       members:
-         - group: team-1--admins
-           access:
-             role: edit
-             notebooksAccess: true
-       plugins:
-          - kind: AwsIamForServiceAccount
-            spec:
-              awsIamRole: arn:aws:iam::131485263174:role/team-pierre-role
-              AnnotateOnly: true
+    #  - name: team-pierre
+    #    members:
+    #      - group: team-1--admins
+    #        access:
+    #          role: edit
+    #          notebooksAccess: true
+    #    plugins:
+    #       - kind: AwsIamForServiceAccount
+    #         spec:
+    #           awsIamRole: arn:aws:iam::131485263174:role/team-pierre-role
+    #           AnnotateOnly: true
+    #  - name: team-test
+    #    members:
+    #      - group: team-1--admins
+    #        access:
+    #          role: edit
+    #          notebooksAccess: true
+    #    plugins:
+    #       - kind: AwsIamForServiceAccount
+    #         spec:
+    #           awsIamRole: arn:aws:iam::131485263174:role/team-pierre-role
+    #           AnnotateOnly: true
