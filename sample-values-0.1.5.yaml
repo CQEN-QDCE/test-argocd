@@ -78,7 +78,6 @@ argocd:
   ##
   destination:
     server: https://kubernetes.default.svc
-    name: "argocd"
 
 
 ## --------------------------------------------------------------------------------
